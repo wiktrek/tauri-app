@@ -26,6 +26,7 @@ function App() {
         />
         <button type="submit">Greet</button>
       </form>
+      <a className=" text-red-800">wrfa</a>
     </div>
   );
 }
