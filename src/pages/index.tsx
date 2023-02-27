@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function App() {
   const [start, setStart] = useState(false);
-  const [response, setResponse] = useState(false);
+  const [response, setResponse] = useState();
   async function start_stop() {
     setStart(await invoke('start', { start: start }));
     if (start === true) {

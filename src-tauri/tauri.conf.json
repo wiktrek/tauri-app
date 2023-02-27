@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "test",
+    "productName": "timer",
     "version": "0.0.0"
   },
   "tauri": {
