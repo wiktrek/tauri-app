@@ -20,13 +20,14 @@ fn start(start: bool) -> bool {
 
 }
 #[tauri::command]
-fn timer(start: bool) -> Duration {
+fn timer(start: bool) -> u64{
     let now = Instant::now();
     format!("DZIAŁA / timer");
     if start == true {
-return Duration::new(0, 0);
+        println!("{}",  now.elapsed().as_secs_f64());
+return Duration::new(0, 0).as_secs();
     } else {
-        return now.elapsed()
+        return now.elapsed().as_secs()
     }
 }
 fn main() {
