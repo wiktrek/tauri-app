@@ -5,19 +5,21 @@ import Image from 'next/image';
 function App() {
   const [start, setStart] = useState(false);
   const [response, setResponse] = useState();
+  const [instant, setInstant] = useState();
   async function start_stop() {
-    setStart(await invoke('start', { start: start }));
+    setInstant(await invoke('start', { start: start }));
     if (start === true) {
-      timer();
+      setStart(false);
+    } else {
+      setStart(true);
     }
-  }
-  async function timer() {
-    setResponse(await invoke('timer', { start: start }));
   }
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <button onClick={start_stop}>{start ? 'stop' : 'start'}</button>
       <p>{response}</p>
+      <a>I don't know how to make this work</a>
+      <a>{instant}</a>
     </div>
   );
 }

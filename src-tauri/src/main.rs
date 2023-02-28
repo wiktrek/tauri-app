@@ -7,32 +7,21 @@ use std::time::{Instant, Duration };
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn start(start: bool) -> bool {
+fn start(start: bool) -> u64{
+
     format!("DZIAŁA {}", start);
     println!("{}", start);
-    if start == true {
-        return false
-    } else {
 
-        return true
-    }
-
-
-}
-#[tauri::command]
-fn timer(start: bool) -> u64{
     let now = Instant::now();
-    println!("DZIAŁA / timer");
-    if start == false {
-        println!("{}",  now.elapsed().as_secs_f64());
-return Duration::new(0, 0).as_secs();
-    } else {
-        return now.elapsed().as_secs()
-    }
+    stoptimer(now)
+}
+fn stoptimer(timer: Instant) -> u64{
+return timer.elapsed().as_secs()
+
 }
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![start, timer])
+        .invoke_handler(tauri::generate_handler![start])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
