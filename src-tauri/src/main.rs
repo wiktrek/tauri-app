@@ -2,6 +2,7 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
+use std::thread;
 use std::thread::sleep;
 use std::time::{Instant, Duration };
 
@@ -11,17 +12,21 @@ fn start(start: bool) -> u64{
 
     format!("DZIAŁA {}", start);
     println!("{}", start);
-    seconds();
+    let seconds = thread::spawn(seconds);
+    // seconds();
+    return seconds.join().unwrap();
     return 1232131
 }
-fn seconds() {
+fn seconds() -> u64 {
     let mut a = 0;
 
     loop {
 sleep(Duration::from_secs(1));
 a += 1;
 println!("{}", a);
+
     }
+    return a;
 }
 fn main() {
     tauri::Builder::default()
