@@ -22,8 +22,8 @@ fn start(start: bool) -> bool {
 #[tauri::command]
 fn timer(start: bool) -> u64{
     let now = Instant::now();
-    format!("DZIAŁA / timer");
-    if start == true {
+    println!("DZIAŁA / timer");
+    if start == false {
         println!("{}",  now.elapsed().as_secs_f64());
 return Duration::new(0, 0).as_secs();
     } else {
