@@ -10,23 +10,24 @@ use std::time::{Instant, Duration };
 #[tauri::command]
 fn start(start: bool) -> u64{
 
-    format!("DZIAŁA {}", start);
-    println!("{}", start);
-    let seconds = thread::spawn(seconds);
-    // seconds();
-    return seconds.join().unwrap();
-    return 1232131
-}
-fn seconds() -> u64 {
-    let mut a = 0;
+//     format!("DZIAŁA {}", start);
+//     println!("{}", start);
+//     let seconds = thread::spawn(|| {
+//         let mut a = 0;
+//         let is_true = start;
+//         if is_true == true {
+//             return a
+//         }
+//         loop {
+//     sleep(Duration::from_secs(1));
+//     a += 1;
+//     println!("{}", a);
 
-    loop {
-sleep(Duration::from_secs(1));
-a += 1;
-println!("{}", a);
-
-    }
-    return a;
+//     }
+// });
+//     // seconds();
+//     return seconds.join().unwrap();
+return 0;
 }
 fn main() {
     tauri::Builder::default()
