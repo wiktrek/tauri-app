@@ -5,18 +5,28 @@ import Image from 'next/image';
 function App() {
   const [start, setStart] = useState(false);
   const [seconds, setSeconds] = useState(0);
+  const [timerSeconds, setTimerSeconds] = useState(0);
   useEffect(() => {
-    // create a interval and get the id
+    let a = 0;
     const myInterval = setInterval(() => {
-      setSeconds(seconds + 1);
+      setSeconds(a + 1);
+      console.log(a);
+      console.log(start);
+      if (start === true) {
+        setTimerSeconds(seconds);
+      }
+      a += 1;
     }, 1000);
-    // clear out the interval using the id when unmounting the component
-    return () => clearInterval(myInterval);
+    return () => {
+      console.log('Clearing interval');
+      clearInterval(myInterval);
+    };
   }, []);
   async function start_stop() {
     // setInstant(await invoke('start'));
     if (start === false) {
       setStart(true);
+      setSeconds(0);
     } else {
       setStart(false);
     }
@@ -24,7 +34,7 @@ function App() {
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <button onClick={start_stop}>{start ? 'stop' : 'start'}</button>
-      <p>{seconds}</p>
+      <p>{timerSeconds}</p>
       <a>{start ? 'true' : 'false'}</a>
       <a>I don't know how to make this work</a>
     </div>
