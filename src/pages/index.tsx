@@ -12,9 +12,7 @@ function App() {
       setSeconds(a + 1);
       console.log(a);
       console.log(start);
-      if (start === true) {
-        setTimerSeconds(seconds);
-      }
+      setSecondsfn();
       a += 1;
     }, 1000);
     return () => {
@@ -22,6 +20,10 @@ function App() {
       clearInterval(myInterval);
     };
   }, []);
+  function setSecondsfn() {
+    if (start === false) return;
+    setTimerSeconds(seconds);
+  }
   async function start_stop() {
     // setInstant(await invoke('start'));
     if (start === false) {
