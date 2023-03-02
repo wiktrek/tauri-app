@@ -8,25 +8,7 @@ use std::time::{Instant, Duration };
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn start(start: bool) -> u64{
-
-//     format!("DZIAŁA {}", start);
-//     println!("{}", start);
-//     let seconds = thread::spawn(|| {
-//         let mut a = 0;
-//         let is_true = start;
-//         if is_true == true {
-//             return a
-//         }
-//         loop {
-//     sleep(Duration::from_secs(1));
-//     a += 1;
-//     println!("{}", a);
-
-//     }
-// });
-//     // seconds();
-//     return seconds.join().unwrap();
+fn start() -> u64{
 return 0;
 }
 fn main() {
