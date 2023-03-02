@@ -1,19 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri';
 import Image from 'next/image';
 
 function App() {
   const [start, setStart] = useState(false);
   const [seconds, setSeconds] = useState(0);
+  useEffect(() => {
+    // create a interval and get the id
+    const myInterval = setInterval(() => {
+      setSeconds(seconds + 1);
+    }, 1000);
+    // clear out the interval using the id when unmounting the component
+    return () => clearInterval(myInterval);
+  }, []);
   async function start_stop() {
     // setInstant(await invoke('start'));
     if (start === false) {
-      var myfunc = setInterval(function () {
-        setSeconds(seconds + 1);
-      }, 1000);
       setStart(true);
     } else {
-      clearInterval(myfunc);
       setStart(false);
     }
   }
