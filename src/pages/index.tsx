@@ -7,20 +7,21 @@ function App() {
   const [seconds, setSeconds] = useState(0);
   async function start_stop() {
     // setInstant(await invoke('start'));
-    if (start === true) {
-      setStart(false);
+    if (start === false) {
       var myfunc = setInterval(function () {
         setSeconds(seconds + 1);
       }, 1000);
+      setStart(true);
     } else {
       clearInterval(myfunc);
-      setStart(true);
+      setStart(false);
     }
   }
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <button onClick={start_stop}>{start ? 'stop' : 'start'}</button>
       <p>{seconds}</p>
+      <a>{start ? 'true' : 'false'}</a>
       <a>I don't know how to make this work</a>
     </div>
   );
