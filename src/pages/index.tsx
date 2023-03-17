@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <a>Idk</a>
+      <button>click me!</button>
     </div>
   );
 }
