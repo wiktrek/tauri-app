@@ -3,10 +3,13 @@
     windows_subsystem = "windows"
 )]
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+/*
+  more code in the future 
+*/
+
 #[tauri::command]
-fn start() -> u64{
-return 0;
+fn start() -> u64 {
+    return 0;
 }
 fn main() {
     tauri::Builder::default()
