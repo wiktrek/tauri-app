@@ -28,9 +28,13 @@ function App() {
   }
 
   function setNewText() {
+    let input = (document.getElementById('text') as HTMLInputElement).value;
+    let input2 = (document.getElementById('text2') as HTMLInputElement).value;
+    if (input === '' || input2 === '') return;
+    console.log(input, input2);
     let text: Text = {
-      name: 'string',
-      definition: 'string',
+      name: input,
+      definition: input2,
     };
 
     setTexts([...texts, text]);
@@ -57,7 +61,7 @@ function App() {
         placeholder="definition"
       />
       <p>
-        <button>Add words</button>
+        <button onClick={setNewText}>Add words</button>
       </p>
     </div>
   );
