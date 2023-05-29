@@ -4,7 +4,7 @@
 )]
 
 /*
-  more code in the future 
+  more code in the future
 */
 
 #[tauri::command]

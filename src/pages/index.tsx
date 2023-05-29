@@ -13,6 +13,7 @@ function App() {
   const [error, setError] = useState('');
   // change text every 5 minutes
   function changeText() {
+    console.log(texts);
     const random = getRandomText(texts.length);
     if (texts.length <= 1) {
       return setError('You need to add more texts');
@@ -35,7 +36,13 @@ function App() {
   function setNewText() {
     let input = (document.getElementById('text') as HTMLInputElement).value;
     let input2 = (document.getElementById('text2') as HTMLInputElement).value;
-    if (input === '' || input2 === '') return;
+
+    texts.forEach((text) => {
+      if (input === text.name)
+        return setError('There is a text with the same name');
+    });
+    setError('');
+    if (input === '' || input2 === '') return setError('Inputs are empty');
     // console.log(input, input2);
     let text: Text = {
       name: input,
