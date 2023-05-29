@@ -8,22 +8,29 @@ function App() {
     definition: string;
   }
 
-  const [texts, setTexts] = useState([{} as Text, {} as Text]);
-  const [displayed, setDisplayed] = useState('');
+  const [texts, setTexts] = useState<Text[]>([]);
+  const [displayed, setDisplayed] = useState<Text>({} as Text);
+  const [error, setError] = useState('');
 
   // change text every 5 minutes
   function changeText() {
     const random = getRandomText(texts.length);
+    console.log(random);
+    if (random <= 1) {
+      return setError('You need to add more texts');
+    } else {
+      setError('');
+    }
     let text = texts[random];
-    if (text.name === displayed) return changeText();
-    setDisplayed(text.name);
+    if (text.name === displayed.name) return changeText();
+    setDisplayed(text);
 
     // setNewText('test');
   }
 
   function getRandomText(max: number) {
     let number = Math.floor(Math.random() * max);
-    console.log(number, max, texts);
+    // console.log(number, max, texts);
     return number;
   }
 
@@ -31,7 +38,7 @@ function App() {
     let input = (document.getElementById('text') as HTMLInputElement).value;
     let input2 = (document.getElementById('text2') as HTMLInputElement).value;
     if (input === '' || input2 === '') return;
-    console.log(input, input2);
+    // console.log(input, input2);
     let text: Text = {
       name: input,
       definition: input2,
@@ -44,7 +51,9 @@ function App() {
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <p>change text every 5 minutes</p>
-      <p className="text-4xl">Text: {displayed}</p>
+      <p className="text-4xl">
+        <button onClick={() => {}}>{displayed.name}</button>
+      </p>
       <button onClick={changeText}>click me!</button>
       <p>
         <input
@@ -63,6 +72,7 @@ function App() {
       <p>
         <button onClick={setNewText}>Add words</button>
       </p>
+      <p className=" text-red-800">{error}</p>
     </div>
   );
 }
