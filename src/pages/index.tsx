@@ -10,6 +10,7 @@ function App() {
 
   const [texts, setTexts] = useState<Text[]>([]);
   const [displayed, setDisplayed] = useState<Text>({} as Text);
+  const [hidden, setHidden] = useState(true);
   const [error, setError] = useState('');
   // change text every 5 minutes
   function changeText() {
@@ -56,8 +57,20 @@ function App() {
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <p>change text every 5 minutes</p>
-      <p className="text-4xl">
-        <button onClick={() => {}}>{displayed.name}</button>
+      <p className="text-3xl">
+        <button
+          onClick={() => {
+            document.getElementById('definition').hidden = hidden
+              ? false
+              : true;
+            setHidden(hidden ? false : true);
+          }}
+        >
+          {displayed.name}
+        </button>
+        <p id="definition" className="text-2xl">
+          {displayed.definition}
+        </p>
       </p>
       <button onClick={changeText}>click me!</button>
       <p>
