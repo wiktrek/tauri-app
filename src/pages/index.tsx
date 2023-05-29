@@ -11,12 +11,10 @@ function App() {
   const [texts, setTexts] = useState<Text[]>([]);
   const [displayed, setDisplayed] = useState<Text>({} as Text);
   const [error, setError] = useState('');
-
   // change text every 5 minutes
   function changeText() {
     const random = getRandomText(texts.length);
-    console.log(random);
-    if (random <= 1) {
+    if (texts.length <= 1) {
       return setError('You need to add more texts');
     } else {
       setError('');
