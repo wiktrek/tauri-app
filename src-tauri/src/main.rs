@@ -3,13 +3,16 @@
     windows_subsystem = "windows"
 )]
 
-/*
-  more code in the future
-*/
+use std::time::Duration;
 
 #[tauri::command]
-fn start() -> u64 {
-    return 0;
+fn start() -> bool {
+    tokio::spawn(async move {
+        tokio::time::sleep(Duration::from_secs(5)).await;
+        // code goes here
+    });
+
+    return false;
 }
 fn main() {
     tauri::Builder::default()

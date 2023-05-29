@@ -13,6 +13,7 @@ function App() {
   const [hidden, setHidden] = useState(true);
   const [error, setError] = useState('');
   // change text every 5 minutes
+
   function changeText() {
     console.log(texts);
     const random = getRandomText(texts.length);
@@ -54,6 +55,7 @@ function App() {
     // setTexts([...texts, ...exampleTexts]);
   }
   /* <button onClick={setNewText}>wiktrek</button> */
+  invoke('start');
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <p>change text every 5 minutes</p>
