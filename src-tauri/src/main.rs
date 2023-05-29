@@ -8,7 +8,7 @@ use std::time::Duration;
 #[tauri::command]
 fn start() -> bool {
     tokio::spawn(async move {
-        tokio::time::sleep(Duration::from_secs(5)).await;
+        tokio::time::sleep(Duration::from_secs(300)).await;
         // code goes here
     });
 

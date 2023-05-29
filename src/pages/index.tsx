@@ -55,7 +55,7 @@ function App() {
     // setTexts([...texts, ...exampleTexts]);
   }
   /* <button onClick={setNewText}>wiktrek</button> */
-  invoke('start');
+  // invoke('start');
   return (
     <div className="h-screen bg-[#181a1b] text-white">
       <p>change text every 5 minutes</p>
