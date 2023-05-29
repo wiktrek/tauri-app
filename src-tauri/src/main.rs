@@ -6,13 +6,11 @@
 use std::time::Duration;
 
 #[tauri::command]
-fn start() -> bool {
-    tokio::spawn(async move {
-        tokio::time::sleep(Duration::from_secs(300)).await;
-        // code goes here
-    });
-
-    return false;
+async fn start() -> bool {
+    println!("waiting");
+    // std::thread::sleep(std::time::Duration::from_secs(2));
+    tokio::time::sleep(Duration::from_secs(30)).await;
+    return true;
 }
 fn main() {
     tauri::Builder::default()

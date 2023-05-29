@@ -14,6 +14,13 @@ function App() {
   const [error, setError] = useState('');
   // change text every 5 minutes
 
+  async function run_once() {
+    let result = await invoke('start');
+    console.log(result);
+    if (result === true) {
+      changeText();
+    }
+  }
   function changeText() {
     console.log(texts);
     const random = getRandomText(texts.length);
@@ -93,6 +100,7 @@ function App() {
         <button onClick={setNewText}>Add words</button>
       </p>
       <p className=" text-red-800">{error}</p>
+      <button onClick={run_once}>start changing every 5 minutes</button>
     </div>
   );
 }
