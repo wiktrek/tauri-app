@@ -9,7 +9,7 @@ use std::time::Duration;
 async fn start() -> bool {
     println!("waiting");
     // std::thread::sleep(std::time::Duration::from_secs(2));
-    tokio::time::sleep(Duration::from_secs(30)).await;
+    tokio::time::sleep(Duration::from_secs(300)).await;
     return true;
 }
 fn main() {
