@@ -64,7 +64,7 @@ function App() {
   /* <button onClick={setNewText}>wiktrek</button> */
   // invoke('start');
   return (
-    <div className="h-screen bg-[#181a1b] text-white">
+    <div className="h-screen bg-[#181a1b] text-white justify-center text-center">
       <p>change text every 5 minutes</p>
       <p className="text-3xl">
         <button
@@ -86,14 +86,14 @@ function App() {
         <input
           id="text"
           type="text"
-          className="text-black"
+          className="text-white bg-transparent border-white border-2 rounded"
           placeholder="text"
         />
       </p>
       <input
         id="text2"
         type="text"
-        className="text-black"
+        className="text-white bg-transparent border-white border-2 rounded"
         placeholder="definition"
       />
       <p>
