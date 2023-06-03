@@ -10,7 +10,7 @@ async fn start() -> bool {
     println!("waiting");
     // std::thread::sleep(std::time::Duration::from_secs(2));
     tokio::time::sleep(Duration::from_secs(300)).await;
-    return true;
+    true
 }
 fn main() {
     tauri::Builder::default()
